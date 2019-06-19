@@ -1,7 +1,8 @@
 #include <stdio.h>
 #include <unistd.h>
+
 /**
- * main - Print Doras quote
+ * main - Print Doras quote to stderr
  *
  * Return: Always 0 (Success)
  */
