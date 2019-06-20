@@ -14,7 +14,7 @@ int main(void)
 
 	while (i < 26)
 	{
-		if( !(str[i] == 'e' || str[i] == 'q'))
+		if (!(str[i] == 'e' || str[i] == 'q'))
 		{
 			putchar(str[i]);
 		}
