@@ -2,7 +2,7 @@
 #include <unistd.h>
 
 /**
- * main - prints quote to stderr
+ * main - Print Dora quot to standard error output
  *
  * Return: 1
  */
