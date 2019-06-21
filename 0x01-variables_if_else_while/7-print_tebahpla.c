@@ -9,7 +9,7 @@
  */
 int main(void)
 {
-	int i = 0;
+	int i = 25;
 	char str[26] = "abcdefghijklmnopqrstuvwxyz";
 
 	while (i >= 0)
