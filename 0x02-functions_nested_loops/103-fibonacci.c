@@ -9,9 +9,9 @@ int main(void)
 {
 	long f0 = 1;
 	long f1 = 2;
-	long i, fn, fn_2;
+	long fn, fn_2;
 
-	fn_2 = 0;
+	fn_2 = 2;
 	fn = 0;
 	while ((f0 < 4000000) && (f1 < 4000000))
 	{
