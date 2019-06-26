@@ -16,7 +16,9 @@ int main(void)
 		fn = f0 + f1;
 		f0 = f1;
 		f1 = fn;
-		printf("%ld, ", fn);
+		printf("%ld", fn);
+		if (i != 49)
+			printf(", ");
 	}
 	printf("\n");
 	return (0);
