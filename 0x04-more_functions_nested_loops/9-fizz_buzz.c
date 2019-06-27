@@ -2,10 +2,10 @@
 #include <stdio.h>
 
 /**
- * fizz_buzz - print fizz for mults of 3 and buzz for 5
+ * main - print fizz for mults of 3 and buzz for 5
  *
  */
-void fizz_buzz(void)
+int main(void)
 {
 	int i;
 
@@ -21,16 +21,5 @@ void fizz_buzz(void)
 			printf("%d", i);
 		printf(" ");
 	}
-}
-
-/**
- * main - run fizz_buzz
- *
- * Return: 0 on success
- *
- */
-int main(void)
-{
-	fizz_buzz();
 	return (0);
 }
