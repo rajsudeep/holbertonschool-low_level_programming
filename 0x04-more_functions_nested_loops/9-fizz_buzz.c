@@ -4,6 +4,7 @@
 /**
  * main - print fizz for mults of 3 and buzz for 5
  *
+ * Return: 0 for success
  */
 int main(void)
 {
