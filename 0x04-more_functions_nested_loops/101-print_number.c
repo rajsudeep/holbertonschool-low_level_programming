@@ -58,11 +58,11 @@ int _pow(int x, int y)
 
 	if (y == 0)
 		return (1);
-	temp = _pow(x, y/2);
+	temp = _pow(x, y / 2);
 	if (y % 2 == 0)
-		return (temp*temp);
+		return (temp * temp);
 	else
-		return (x*temp*temp);
+		return (x * temp * temp);
 }
 
 /**
@@ -79,15 +79,15 @@ void print_number(int n)
 	int currDigit;
 
 	if (n < 0)
-		putchar('-');
+		_putchar('-');
 
 	n = _abs(n);
 
-	putchar('0' + (n / (_pow(10, digits - 1))));
+	_putchar('0' + (n / (_pow(10, digits - 1))));
 	for (i = 2; i <= digits; i++)
 	{
 		x = _pow(10, (digits - i));
 		currDigit = (n / x) % 10;
-		putchar(currDigit + '0');
+		_putchar(currDigit + '0');
 	}
 }
