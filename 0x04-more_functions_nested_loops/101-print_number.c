@@ -69,15 +69,17 @@ int _pow(int x, int y)
 
 void print_number(int n)
 {
-	int digits = count_int(n);
-	int x;
-	int currDigit;
+	int digits;
 	int i;
+	int x;
+	int lastDigit;
+	int currDigit;
 
 	if (n < 0)
 		_putchar('-');
-
-	n = _abs(n);
+	lastDigit = _abs(n % 10);
+	n = _abs(n/10);
+	digits = count_int(n);
 
 	_putchar('0' + (n / (_pow(10, digits - 1))));
 	for (i = 2; i <= digits; i++)
@@ -86,4 +88,5 @@ void print_number(int n)
 		currDigit = (n / x) % 10;
 		_putchar(currDigit + '0');
 	}
+	_putchar(lastDigit + '0');
 }
