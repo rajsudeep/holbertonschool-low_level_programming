@@ -2,17 +2,16 @@
 #include <stdio.h>
 
 void print_number(int n);
+int count_int(int n);
 int _abs(int n);
 int _pow(int x, int y);
-int count_int(int n);
 
 /**
- * count_int - counts number of digits
- *
- * @n: integer to count from
- *
- * Return: number of digits
+ * count_int - counts the number of digits in an integer
+ * @n: input number from 101-main.c
+ * Return: The number of digits of the input number
  */
+
 int count_int(int n)
 {
 	int count = 0;
@@ -26,12 +25,11 @@ int count_int(int n)
 }
 
 /**
- * _abs - create absolute value
- *
- * @n: integer to absolute
- *
- * Return: value absoluted
+ * _abs - calculates the absolute value of a number
+ * @n: input from 101-main.c
+ * Return: A positive value
  */
+
 int _abs(int n)
 {
 	if (n < 0)
@@ -45,13 +43,12 @@ int _abs(int n)
 }
 
 /**
- * _pow - computes the power of a int
- *
- * @x: int to power
- * @y: amount of power
- *
- * Return: the powered value
+ * _pow - calculates the power of a number
+ * @x: the base of number
+ * @y: the power of the number
+ * Return: x
  */
+
 int _pow(int x, int y)
 {
 	int temp;
@@ -66,17 +63,16 @@ int _pow(int x, int y)
 }
 
 /**
- * print_number - print integer
- *
- * @n: integer to print
- *
+ * print_number - prints the input number as an integer
+ * @n: input from 101-main.c
  */
+
 void print_number(int n)
 {
 	int digits = count_int(n);
-	int i;
 	int x;
 	int currDigit;
+	int i;
 
 	if (n < 0)
 		_putchar('-');
