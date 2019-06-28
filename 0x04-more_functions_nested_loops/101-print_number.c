@@ -78,7 +78,7 @@ void print_number(int n)
 	if (n < 0)
 		_putchar('-');
 	lastDigit = _abs(n % 10);
-	n = _abs(n/10);
+	n = _abs(n / 10);
 	digits = count_int(n);
 
 	_putchar('0' + (n / (_pow(10, digits - 1))));
