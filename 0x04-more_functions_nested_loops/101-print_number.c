@@ -54,14 +54,15 @@ int _abs(int n)
  */
 int _pow(int x, int y)
 {
-	int result = 1;
+	int temp;
 
-	while (y != 0)
-	{
-		result *= x;
-		--y;
-	}
-	return (result);
+	if (y == 0)
+		return (1);
+	temp = _pow(x, y/2);
+	if (y % 2 == 0)
+		return (temp*temp);
+	else
+		return (x*temp*temp);
 }
 
 /**
