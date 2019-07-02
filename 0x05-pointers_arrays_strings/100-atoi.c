@@ -19,7 +19,7 @@ int _atoi(char *s)
 			sign *= -1;
 	}
 	for (; s[i] != '\0' && (s[i] >= '0' && s[i] <= '9'); i++)
-		result = result * 10 - s[i] + '0';
+		result = (result * 10) - (s[i] - '0');
 	result *= sign;
 	return (result);
 }
