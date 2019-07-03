@@ -1,6 +1,7 @@
 #include "holberton.h"
 #include <stdio.h>
 #include <stdlib.h>
+#include <time.h>
 
 /**
  * main - create random keys thats ascii values sum to 2772
