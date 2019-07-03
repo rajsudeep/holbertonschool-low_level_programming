@@ -5,8 +5,7 @@
 /**
  * main - create random keys thats ascii values sum to 2772
  *
- *
- * Return: On success 1.
+ * Return: On success 0.
  *
  */
 int main(void)
@@ -23,12 +22,11 @@ int main(void)
 	{
 		val = rand() % 62;
 		key[i] = asciivals[val];
-		count += key[i];
+		count += asciivals[val];
 	}
 	val = 2772 - count;
 	key[i] = val;
-	i++;
-	key[i] = '\0';
+	key[++i] = '\0';
 	printf("%s", key);
 	return (0);
 }
