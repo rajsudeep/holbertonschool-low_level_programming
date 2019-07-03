@@ -11,7 +11,8 @@
  */
 int main(void)
 {
-	char asciivals[63] = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+	char asciivals[63] =
+	"abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
 	char key[100];
 	int count = 0;
 	int i = 0;
