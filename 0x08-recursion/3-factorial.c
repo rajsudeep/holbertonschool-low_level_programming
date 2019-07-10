@@ -4,7 +4,7 @@
  * factorial - gives the facotrial of a given number
  *
  * @n: input number to factor
- *
+ * Return: the factorial number of n
  */
 int factorial(int n)
 {
