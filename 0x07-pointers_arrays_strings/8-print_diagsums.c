@@ -2,7 +2,8 @@
 #include <stdio.h>
 
 /**
- * print_diagsums - prints the sum of the 2 diagnoals of a square matrix of ints
+ * print_diagsums - prints the sum of the 2
+ * diagnoals of a square matrix of ints
  *
  * @a: reference to 2D array
  * @size: size of square array
