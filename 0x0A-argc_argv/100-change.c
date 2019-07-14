@@ -16,7 +16,7 @@
 int main(int argc, char *argv[])
 {
 	int i, coins, change;
-	int coinVal[] = {25, 10, 5, 2, 1};
+	int coinVal[5] = {25, 10, 5, 2, 1};
 
 	coins = 0;
 	change = atoi(argv[1]);
@@ -32,9 +32,9 @@ int main(int argc, char *argv[])
 	}
 	for (i = 0; i < 5; i++)
 	{
-		while (change >= coinVal)
+		while (change >= *(coinVal + i))
 		{
-			change -= coinVal;
+			change -= *(coinVal+ i);
 			coins++;
 		}
 	}
