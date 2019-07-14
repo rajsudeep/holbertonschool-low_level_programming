@@ -27,14 +27,13 @@ int main(int argc, char *argv[])
 	{
 		for (i = 0; argv[argc][i] != '\0'; i++)
 		{
-			if (isdigit(argv[argc][i]))
-				sum += atoi(argv[argc]);
-			else
+			if (!isdigit(argv[argc][i]))
 			{
 				printf("Error\n");
 				return (1);
 			}
 		}
+		sum += atoi(argv[argc]);
 	}
 	printf("%d\n", sum);
 	return (0);
