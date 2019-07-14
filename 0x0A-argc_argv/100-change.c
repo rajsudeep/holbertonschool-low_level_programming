@@ -19,7 +19,6 @@ int main(int argc, char *argv[])
 	int coinVal[5] = {25, 10, 5, 2, 1};
 
 	coins = 0;
-	change = atoi(argv[1]);
 	if (argc != 2)
 	{
 		printf("Error\n");
@@ -30,6 +29,7 @@ int main(int argc, char *argv[])
 		printf("%d\n", coins);
 		return (0);
 	}
+	change = atoi(argv[i]);
 	for (i = 0; i < 5; i++)
 	{
 		while (change >= *(coinVal + i))
