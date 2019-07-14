@@ -34,7 +34,7 @@ int main(int argc, char *argv[])
 	{
 		while (change >= *(coinVal + i))
 		{
-			change -= *(coinVal+ i);
+			change -= *(coinVal + i);
 			coins++;
 		}
 	}
