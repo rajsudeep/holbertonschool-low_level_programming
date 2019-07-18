@@ -6,13 +6,13 @@
  * setwords  - create the words to place in the word array
  *
  * @ac: amount of words including NULL
- * @words: array of the words to be
  * @str: input string
  * Return: array of the words
  */
-char **setwords(int ac, char **words, char *str)
+char **setwords(int ac, char *str)
 {
 	int i, j, al, w, k, l;
+	char **words;
 
 	if (ac == 0)
 		return (NULL);
@@ -60,7 +60,6 @@ char **setwords(int ac, char **words, char *str)
  */
 char **strtow(char *str)
 {
-	char **words;
 	int ac, i;
 
 	if (str == NULL || str[0] == '\0')
@@ -74,5 +73,5 @@ char **strtow(char *str)
 
 	/* malloc space for each character added per word */
 	/* while at a specific word array, add chars to it */
-	return (setwords(ac, words, str));
+	return (setwords(ac, str));
 }
