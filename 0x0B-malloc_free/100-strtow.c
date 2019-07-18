@@ -12,22 +12,24 @@
  */
 char **setwords(int ac, char **words, char *str)
 {
-	int i, j, al, w, k;
+	int i, j, al, w, k, l;
 
 	j = 0, k = 0, w = 0;
 	for (i = 0; str[i] != '\0' && w < ac; i++)
 	{
 		if (str[i] != ' ')
 		{
-			j = i;
 			al = 0;
-			for (; str[j] != '\0' && str[j] != ' '; j++, al++)
+			j = i;
+			while (str[j] != '\0' && str[j] != ' ')
 			{
+				j++;
+				al++;
 			}
 			words[w] = malloc(sizeof(char) * (al + 1));
 			if (words[w] == NULL)
 			{
-				for (k = 0; k < w; k++)
+				for (l = 0; l < w; l++)
 					free(words[w]);
 				free(words);
 				return (NULL);
@@ -56,7 +58,7 @@ char **strtow(char *str)
 	char **words;
 	int ac, i;
 
-	if (str == NULL || str[0] == '\0' || str == "")
+	if (str == NULL || str[0] == '\0')
 		return (NULL);
 
 	/* ac determines amount of words in string*/
