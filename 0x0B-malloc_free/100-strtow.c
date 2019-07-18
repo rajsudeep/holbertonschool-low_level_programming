@@ -11,42 +11,64 @@
  */
 char **strtow(char *str)
 {
-	char **av;
-	int ac, i, al, j, k, l;
+	char **words;
+	int ac, i, al, j, k, w;
+
+	if (str == NULL || str[0] == '\0')
+		return (NULL);
 
 	/* ac determines amount of words in string*/
 	i = 0, al = 0, ac = 0;
 	for (i = 0; str[i] != '\0'; i++)
 	{
-		if (str[i] = ' ')
+		if (str[i + 1] != ' ')
+		{
 			ac++;
+			while (str[i + 1] != ' ')
+				i++;
+		}
 	}
-	/* add count word in string that wasn't counted for */
+	/* include space for NULL terminal */
 	ac++;
 
-	words = malloc(sizeof(char **) * ac);
+	if (ac == 0)
+		return (NULL);
+	words = malloc(sizeof(char *) * ac);
+	if (words == NULL)
+		return (NULL);
 
 	/* malloc space for each character added per word */
 	/* while at a specific word array, add chars to it */
-	j = 0, k = 0, l = 0;
-	for (i = 0; i < ac; i++)
+	j = 0, k = 0, w = 0;
+	for (i = 0; str[i] != '\0' && w < ac; i++)
 	{
-		al = 0;
-		for (; str[j] != '\0'; j++)
+		if (str[i] != ' ')
 		{
-			if (str[j] != ' ')
-				al++;
-			else
-				break;
-		}
-		words[i] = malloc(sizeof(char *) * (al + 1));
-		for (k = 0; k < al; k++, l++)
-		{
-			if (str[l] == ' ')
-				words[i][k] = '\0';
-			else
-				words[i][k] = str[l];
+			j = i;
+			al = 0;
+			for (; str[j] != '\0'; j++, al++)
+			{
+				if (str[j] != ' ')
+					al++;
+				else
+					break;
+			}
+			words[w] = malloc(sizeof(char) * (al + 1));
+			if (words[w] == NULL)
+			{
+				for (k = 0; k < w; w++)
+					free(words[w]);
+				free(words);
+				return (NULL);
+			}
+			for (k = 0; k < al; k++, i++)
+			{
+				words[w][k] = str[i];
+			}
+			words[w][k] = '\0';
+			w++;
 		}
 	}
+	words[w] = NULL;
 	return (words);
 }
