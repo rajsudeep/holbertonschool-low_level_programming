@@ -1,7 +1,8 @@
 #include "holberton.h"
 #include <stdio.h>
 #include <stdlib.h>
-#include <string.h>
+
+char *_memset(char *s, char b, unsigned int n);
 
 /**
  * _calloc - allocates memory for an array
@@ -23,6 +24,24 @@ void *_calloc(unsigned int nmemb, unsigned int size)
 	p = malloc(numbytes);
 	if (p == NULL)
 		return (NULL);
-	memset(p, 0, numbytes);
+	_memset(p, 0, numbytes);
 	return (p);
+}
+
+/**
+ * *_memset - fills memory with a constant byte
+ *
+ * @s: memory area pointed to
+ * @b: constant byte
+ * @n: amount of bytes
+ * Return: pointer to memory area
+ *
+ */
+char *_memset(char *s, char b, unsigned int n)
+{
+	unsigned int i = 0;
+
+	for (; i != n; i++)
+		s[i] = b;
+	return (s);
 }
