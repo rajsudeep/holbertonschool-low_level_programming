@@ -3,37 +3,17 @@
 #include <stdlib.h>
 
 /**
- * strtow - creates an array of words from given string
+ * setwords  - create the words to place in the word array
  *
+ * @ac: amount of words including NULL
+ * @words: array of the words to be
  * @str: input string
  * Return: array of the words
- *
  */
-char **strtow(char *str)
+char **setwords(int ac, char **words, char *str)
 {
-	char **words;
-	int ac, i, al, j, k, w;
+	int i, j, al, w, k;
 
-	if (str == NULL || str[0] == '\0')
-		return (NULL);
-
-	/* ac determines amount of words in string*/
-	i = 0, ac = 0;
-	for (i = 0; str[i] != '\0'; i++)
-		if (str[i] != ' ' && (str[i + 1] == ' ' || str[i + 1] == '\0'))
-			ac++;
-	
-        /* include space for NULL terminal */
-	ac++;
-
-	if (ac == 0)
-		return (NULL);
-	words = malloc(sizeof(char *) * ac);
-	if (words == NULL)
-		return (NULL);
-
-	/* malloc space for each character added per word */
-	/* while at a specific word array, add chars to it */
 	j = 0, k = 0, w = 0;
 	for (i = 0; str[i] != '\0' && w < ac; i++)
 	{
@@ -62,4 +42,37 @@ char **strtow(char *str)
 	}
 	words[w] = NULL;
 	return (words);
+}
+
+/**
+ * strtow - creates an array of words from given string
+ *
+ * @str: input string
+ * Return: array of the words
+ *
+ */
+char **strtow(char *str)
+{
+	char **words;
+	int ac, i;
+
+	if (str == NULL || str[0] == '\0')
+		return (NULL);
+
+	/* ac determines amount of words in string*/
+	i = 0, ac = 0;
+	for (i = 0; str[i] != '\0'; i++)
+		if (str[i] != ' ' && (str[i + 1] == ' ' || str[i + 1] == '\0'))
+			ac++;
+	ac++;
+
+	if (ac == 0)
+		return (NULL);
+	words = malloc(sizeof(char *) * ac);
+	if (words == NULL)
+		return (NULL);
+
+	/* malloc space for each character added per word */
+	/* while at a specific word array, add chars to it */
+	return (setwords(ac, words, str));
 }
