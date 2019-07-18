@@ -64,11 +64,10 @@ char **strtow(char *str)
 	for (i = 0; str[i] != '\0'; i++)
 		if (str[i] != ' ' && (str[i + 1] == ' ' || str[i + 1] == '\0'))
 			ac++;
-	ac++;
 
 	if (ac == 0)
 		return (NULL);
-	words = malloc(sizeof(char *) * ac);
+	words = malloc(sizeof(char *) * ac + 1);
 	if (words == NULL)
 		return (NULL);
 
