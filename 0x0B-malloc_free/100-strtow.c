@@ -14,6 +14,12 @@ char **setwords(int ac, char **words, char *str)
 {
 	int i, j, al, w, k, l;
 
+	if (ac == 0)
+		return (NULL);
+	words = malloc(sizeof(char *) * ac + 1);
+	if (words == NULL)
+		return (NULL);
+
 	j = 0, k = 0, w = 0;
 	for (i = 0; str[i] != '\0' && w < ac; i++)
 	{
@@ -51,7 +57,6 @@ char **setwords(int ac, char **words, char *str)
  *
  * @str: input string
  * Return: array of the words
- *
  */
 char **strtow(char *str)
 {
@@ -66,12 +71,6 @@ char **strtow(char *str)
 	for (i = 0; str[i] != '\0'; i++)
 		if (str[i] != ' ' && (str[i + 1] == ' ' || str[i + 1] == '\0'))
 			ac++;
-
-	if (ac == 0)
-		return (NULL);
-	words = malloc(sizeof(char *) * ac + 1);
-	if (words == NULL)
-		return (NULL);
 
 	/* malloc space for each character added per word */
 	/* while at a specific word array, add chars to it */
