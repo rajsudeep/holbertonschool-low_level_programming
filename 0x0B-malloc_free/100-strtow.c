@@ -27,7 +27,7 @@ char **setwords(int ac, char **words, char *str)
 			words[w] = malloc(sizeof(char) * (al + 1));
 			if (words[w] == NULL)
 			{
-				for (k = 0; k < w; w++)
+				for (k = 0; k < w; k++)
 					free(words[w]);
 				free(words);
 				return (NULL);
