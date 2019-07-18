@@ -56,7 +56,7 @@ char **strtow(char *str)
 	char **words;
 	int ac, i;
 
-	if (str == NULL || str[0] == '\0')
+	if (str == NULL || str[0] == '\0' || str == "")
 		return (NULL);
 
 	/* ac determines amount of words in string*/
