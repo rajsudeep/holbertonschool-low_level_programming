@@ -18,17 +18,12 @@ char **strtow(char *str)
 		return (NULL);
 
 	/* ac determines amount of words in string*/
-	i = 0, al = 0, ac = 0;
+	i = 0, ac = 0;
 	for (i = 0; str[i] != '\0'; i++)
-	{
-		if (str[i + 1] != ' ')
-		{
+		if (str[i] != ' ' && (str[i + 1] == ' ' || str[i + 1] == '\0'))
 			ac++;
-			while (str[i + 1] != ' ')
-				i++;
-		}
-	}
-	/* include space for NULL terminal */
+	
+        /* include space for NULL terminal */
 	ac++;
 
 	if (ac == 0)
@@ -46,12 +41,8 @@ char **strtow(char *str)
 		{
 			j = i;
 			al = 0;
-			for (; str[j] != '\0'; j++, al++)
+			for (; str[j] != '\0' && str[j] != ' '; j++, al++)
 			{
-				if (str[j] != ' ')
-					al++;
-				else
-					break;
 			}
 			words[w] = malloc(sizeof(char) * (al + 1));
 			if (words[w] == NULL)
