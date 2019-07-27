@@ -43,12 +43,14 @@ void print_f(va_list f)
  */
 void print_s(va_list s)
 {
-	char *str;
+/*	char *str;
 
 	str = va_arg(s, char *);
 	if (!str)
 		str = "(nil)";
 	printf("%s", str);
+*/
+	printf("%s", va_arg(s, char *));
 }
 
 /**
