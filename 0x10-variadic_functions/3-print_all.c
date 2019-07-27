@@ -1,6 +1,5 @@
-#include "variadic_functions.h"
 #include <stdio.h>
-#include <stdarg.h>
+#include "variadic_functions.h"
 
 /**
  * print_c - prints the given character values
@@ -43,12 +42,10 @@ void print_f(va_list f)
  */
 void print_s(va_list s)
 {
-	char *str;
-
-	str = va_arg(s, char *);
-	if (str == NULL)
-		str = "(nil)";
-	printf("%s", str);
+	if (s == NULL)
+		printf("(nil)");
+	else
+		printf("%s", va_arg(s, char *));
 }
 
 /**
