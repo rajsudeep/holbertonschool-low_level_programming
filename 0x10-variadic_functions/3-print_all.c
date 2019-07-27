@@ -42,10 +42,7 @@ void print_f(va_list f)
  */
 void print_s(va_list s)
 {
-	if (s == NULL)
-		printf("(nil)");
-	else
-		printf("%s", va_arg(s, char *));
+	(!s) ? printf("(nil)") : printf("%s", va_arg(s, char *));
 }
 
 /**
