@@ -2,6 +2,13 @@
 #define _VARIADIC_FUNCTIONS_
 
 #include <stdarg.h>
+/**
+ * struct printarg - points to print functions
+ * relative to format  specifier
+ * @fmt: format specifier for a char, int, float
+ * or string
+ * @f: functions that take specified argument to print
+ */
 typedef struct printarg
 {
 	char *fmt;
