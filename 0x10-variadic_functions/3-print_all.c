@@ -42,7 +42,12 @@ void print_f(va_list f)
  */
 void print_s(va_list s)
 {
-	(!s) ? printf("(nil)") : printf("%s", va_arg(s, char *));
+	char *str;
+
+	str = va_arg(s, char *);
+	if (str == NULL)
+		str = "(nil)";
+	printf("%s", str);
 }
 
 /**
@@ -64,6 +69,8 @@ void print_all(const char * const format, ...)
 	};
 	va_list arguments;
 	int i, j;
+	char *sep = "";
+	char *sepcomma = ", ";
 
 	va_start(arguments, format);
 	i = 0;
@@ -74,9 +81,9 @@ void print_all(const char * const format, ...)
 		{
 			if (*(format + i) == *(args[j]).fmt)
 			{
+				printf("%s", sep);
 				args[j].f(arguments);
-				if (*(format + i + 1) != '\0')
-					printf(", ");
+				sep = sepcomma;
 			}
 			j++;
 		}
