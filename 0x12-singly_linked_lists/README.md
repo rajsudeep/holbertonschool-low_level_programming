@@ -11,3 +11,5 @@
 > Write a function that adds a new node at the end of a list_t list
 ### [4. Free list](./4-free_list.c)
 > Write a function that frees a list_t list
+### [100. The Hare and the Tortoise](./100-first.c)
+> Write a function that prints You're beat! and yet, you must allow,\nI bore my house upon my back!\n before the main function is executed
