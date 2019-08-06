@@ -16,10 +16,4 @@ void free_listint2(listint_t **head)
 		tmpCur = tmpNxt;
 	}
 	*head = NULL;
-	/*
-	if (*head == NULL)
-		return;
-	free_listint(head->next);
-	free(*head);
-*/
 }
