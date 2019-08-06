@@ -17,3 +17,5 @@
 > Write a function that deletes the head node of a listint_t linked list, and returns the head node’s data (n)
 ### [7. Get node at index](./7-get_nodeint.c)
 > Write a function that returns the nth node of a listint_t linked list
+### [8. Sum list](./8-sum_listint.c)
+> Write a function that returns the sum of all the data (n) of a listint_t linked list
