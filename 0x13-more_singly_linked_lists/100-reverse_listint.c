@@ -1,26 +1,6 @@
 #include "lists.h"
 
 /**
- * _reverse_listint - takes a reference to list in order to reverse
- * @head: list of numbers
- * @curr: pointer starting from head of list
- */
-void _reverse_listint(listint_t **head, listint_t *curr)
-{
-	listint_t *next;
-
-	if (curr->next == NULL)
-	{
-		*head = curr;
-		return;
-	}
-	_reverse_listint(head, curr->next);
-	next = curr->next;
-	next->next = curr;
-	curr->next = NULL;
-}
-
-/**
  * reverse_listint - obtains reversed linked list
  * @head: a list of numbers
  *
@@ -28,12 +8,16 @@ void _reverse_listint(listint_t **head, listint_t *curr)
  */
 listint_t *reverse_listint(listint_t **head)
 {
-	listint_t *curr = *head;
+	listint_t *curr = *head, *next;
 
-	if (head == NULL)
+	if (*head == NULL || head == NULL)
 		return (NULL);
-	_reverse_listint(head, curr);
-	if (curr == NULL)
-		return (NULL);
-	return (curr);
+	while (curr->next != NULL)
+	{
+		next = curr->next;
+		curr->next = next->next;
+		next->next = *head;
+		*head = next;
+	}
+	return (*head);
 }
