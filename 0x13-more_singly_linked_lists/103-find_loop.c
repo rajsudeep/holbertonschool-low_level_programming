@@ -28,7 +28,7 @@ listint_t *_find_listint_loop(listint_t *head, listint_t *marker)
  */
 listint_t *find_listint_loop(listint_t *head)
 {
-	node *marker = head, *next = head;
+	listint_t *marker = head, *next = head;
 
 	while (marker != NULL && next != NULL && next->next != NULL)
 	{
