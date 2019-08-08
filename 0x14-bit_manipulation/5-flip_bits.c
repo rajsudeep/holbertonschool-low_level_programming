@@ -1,4 +1,3 @@
-#include <stdio.h>
 #include "holberton.h"
 
 /**
@@ -35,15 +34,10 @@ int get_bit(unsigned long int n, unsigned int index)
 unsigned int flip_bits(unsigned long int n, unsigned long int m)
 {
 	unsigned int count = 0;
-	unsigned int len = sizeof(unsigned long int) * 8 -1, i;
-	unsigned long int nk, mk;
+	unsigned int len = sizeof(unsigned long int) * 8 - 1, i;
 
 	for (i = 0; i < len; i++)
-	{
-		nk = get_bit(n, i);
-		mk = get_bit(m, i);
-		if (nk ^ mk)
+		if (get_bit(n, i) ^ get_bit(m, i))
 			count++;
-	}
 	return (count);
 }
