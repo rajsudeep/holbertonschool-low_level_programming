@@ -7,7 +7,20 @@
  */
 void print_binary(unsigned long int n)
 {
-	if (n > 1)
-		print_binary(n >> 1);
-	printf("%lu", (n & 1));
+	unsigned long int k;
+	int i = sizeof(unsigned long int) * 8 - 1, f = 0;
+
+	if (n == 0)
+		printf("0");
+	for (; i >= 0; i--)
+	{
+		k = n >> i;
+		if (k & 1)
+		{
+			f = 1;
+			printf("1");
+		}
+		else if (f == 1)
+			printf("0");
+	}
 }
