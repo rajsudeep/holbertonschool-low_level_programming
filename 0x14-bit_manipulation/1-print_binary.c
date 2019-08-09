@@ -20,7 +20,7 @@ void print_binary(unsigned long int n)
 			f = 1;
 			printf("1");
 		}
-		else
+		else if (f == 1)
 			printf("0");
 	}
 }
