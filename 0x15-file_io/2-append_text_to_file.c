@@ -38,6 +38,6 @@ int append_text_to_file(const char *filename, char *text_content)
 	numWrite = write(fd, text_content, text_len);
 	close(fd);
 	if (numWrite == -1)
-		return(-1);
+		return (-1);
 	return (1);
 }
