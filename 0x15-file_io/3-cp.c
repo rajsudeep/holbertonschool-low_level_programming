@@ -33,7 +33,7 @@ int main(int ac, char **av)
 		dprintf(STDERR_FILENO, "Error: Can't write to %s\n", av[2]);
 		exit(99);
 	}
-	while ((numRead = read(fd_i, buf, 1024)) != -1)
+	while ((numRead = read(fd_i, buf, 1024)) < 0)
 		write(fd_o, buf, numRead);
 	if (close(fd_i) == -1)
 	{
