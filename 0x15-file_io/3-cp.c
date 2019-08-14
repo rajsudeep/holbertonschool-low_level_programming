@@ -10,7 +10,7 @@
  */
 int main(int ac, char **av)
 {
-	int fd_i, fd_o, numRead;
+	int fd_i, fd_o, numRead, closed;
 	char *file_from = av[1];
 	char *file_to = av[2];
 	char buf[1024];
@@ -48,12 +48,14 @@ int main(int ac, char **av)
                         file_from);
                 exit(98);
 	}
-	if (close(fd_i) == -1)
+	closed = close(fd_i);
+	if (closed == -1)
 	{
 		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", fd_i);
 		exit(100);
 	}
-	if (close(fd_o) == -1)
+	closed = close(fd_o);
+	if (closed == -1)
 	{
 		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", fd_o);
 		exit(100);
