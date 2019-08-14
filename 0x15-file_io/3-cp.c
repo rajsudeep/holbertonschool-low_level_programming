@@ -10,7 +10,7 @@
  */
 int main(int ac, char **av)
 {
-	int fd_i, fd_o, numRead = 1, numWrite;
+	int fd_i, fd_o, numRead;
 	char *file_from = av[1];
 	char *file_to = av[2];
 	char buf[1024];
@@ -24,33 +24,22 @@ int main(int ac, char **av)
 	if (fd_i == -1)
 	{
 		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n",
-			av[1]);
+			file_from);
 		exit(98);
 	}
 	fd_o = open(file_to, O_CREAT | O_WRONLY | O_TRUNC, 110110100);
 	if (fd_o == -1)
 	{
-		dprintf(STDERR_FILENO, "Error: Can't write to %s\n", av[2]);
+		dprintf(STDERR_FILENO, "Error: Can't write to %s\n", file_to);
 		exit(99);
 	}
-	while (numRead)
+	while ((numRead = read(fd_i, buf, 1024)) > 0)
 	{
-		numRead = read(fd_i, buf, 1024);
-		if (numRead == -1)
+		if (write(fd_o, buf, numRead) != numRead)
 		{
 			dprintf(STDERR_FILENO,
-				"Error: Can't read from file %s\n", av[1]);
-			exit(98);
-		}
-		else
-		{
-			numWrite = write(fd_o, buf, numRead);
-			if (numWrite != numRead || numWrite == -1)
-			{
-				dprintf(STDERR_FILENO,
-					"Error: Can't write to %s\n", av[2]);
-				exit(99);
-			}
+				"Error: Can't write to %s\n", file_to);
+			exit(99);
 		}
 	}
 	if (close(fd_i) == -1)
