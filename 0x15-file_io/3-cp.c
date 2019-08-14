@@ -10,7 +10,7 @@
  */
 int main(int ac, char **av)
 {
-	int fd_i, fd_o, numRead;
+	int fd_i, fd_o, numRead = 1, numWrite;
 	char *file_from = av[1];
 	char *file_to = av[2];
 	char buf[1024];
@@ -33,8 +33,26 @@ int main(int ac, char **av)
 		dprintf(STDERR_FILENO, "Error: Can't write to %s\n", av[2]);
 		exit(99);
 	}
-	numRead = read(fd_i, buf, 1024);
-	write(fd_o, buf, numRead);
+	while (numRead)
+	{
+		numRead = read(fd_i, buf, 1024);
+		if (numRead == -1)
+		{
+			dprintf(STDERR_FILENO,
+				"Error: Can't read from file %s\n", av[1]);
+			exit(98);
+		}
+		else
+		{
+			numWrite = write(fd_o, buf, numRead);
+			if (numWrite != numRead || numWrite == -1)
+			{
+				dprintf(STDERR_FILENO,
+					"Error: Can't write to %s\n", av[2]);
+				exit(99);
+			}
+		}
+	}
 	if (close(fd_i) == -1)
 	{
 		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", fd_i);
