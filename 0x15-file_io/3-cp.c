@@ -10,7 +10,7 @@
  */
 int main(int ac, char **av)
 {
-	int fd_i, fd_o, numRead, closed;
+	int fd_i, fd_o, numRead;
 	char *file_from = av[1];
 	char *file_to = av[2];
 	char buf[1024];
