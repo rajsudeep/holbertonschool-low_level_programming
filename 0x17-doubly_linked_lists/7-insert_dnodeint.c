@@ -24,16 +24,16 @@ dlistint_t *insert_dnodeint_at_index(dlistint_t **h, unsigned int idx, int n)
 
 	if (idx == 0)
 		return (add_dnodeint(h, n));
-	while (idx != 0 && tmp->next != NULL)
+	while (idx-- && tmp->next != NULL)
 	{
 		if (tmp == NULL)
 		{
 			free(new);
 			return (NULL);
 		}
-		tmp = tmp ->next, idx--;
+		tmp = tmp->next;
 	}
-	if (idx != 0)
+	if (idx--)
 	{
 		free(new);
 		return (NULL);
