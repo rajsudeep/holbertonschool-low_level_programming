@@ -10,23 +10,30 @@
  */
 int part(int *a, int lo, int hi, size_t size)
 {
-	int i = lo - 1, j, tmp;
+	int i = lo, j = lo, tmp;
 
-	for (j = lo; j <= hi - 1; j++)
+	for (; j < hi; j++)
 	{
 		if (a[j] <= a[hi])
 		{
+			if (i != j)
+			{
+				tmp = a[i];
+				a[i] = a[j];
+				a[j] = tmp;
+				print_array(a, size);
+			}
 			i++;
-			tmp = a[i];
-			a[i] = a[j];
-			a[j] = tmp;
-			print_array(a, size);
 		}
 	}
-	tmp = a[i + 1];
-	a[i + 1] = a[hi];
-	a[hi] = tmp;
-	return (i + 1);
+	if (i != j)
+	{
+		tmp = a[i];
+		a[i] = a[hi];
+		a[hi] = tmp;
+		print_array(a, size);
+	}
+	return (i);
 }
 
 /**
