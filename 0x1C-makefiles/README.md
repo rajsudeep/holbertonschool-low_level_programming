@@ -4,6 +4,6 @@
 > Create a makefile with:
 > * name of the executable: holberton
 > * rules:
-  > * all
+  >	* all
 > * variables:
-  > * none
+  >	* none
