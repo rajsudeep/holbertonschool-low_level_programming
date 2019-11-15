@@ -13,6 +13,7 @@
  * Return: On success 0
  *
  */
+/*
 int main(int argc, char *argv[])
 {
 	int i, sum;
@@ -28,6 +29,34 @@ int main(int argc, char *argv[])
 		for (i = 0; argv[argc][i] != '\0'; i++)
 		{
 			if (!isdigit(argv[argc][i]))
+			{
+				printf("Error\n");
+				return (1);
+			}
+		}
+		sum += atoi(argv[argc]);
+	}
+	printf("%d\n", sum);
+	return (0);
+}
+*/
+
+int main(int argc, char *argv[])
+{
+	int j;
+	int sum;
+
+	sum = 0;
+	if (argv[1] == '\0')
+	{
+		printf("%d\n", sum);
+		return (0);
+	}
+	while (argc-- && argc > 0)
+	{
+		for (j = 0; argv[argc][j] != '\0'; j++)
+		{
+			if (!isdigit(argv[argc][j]))
 			{
 				printf("Error\n");
 				return (1);

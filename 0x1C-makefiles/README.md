@@ -2,8 +2,9 @@
 
 ### [0. make -f 0-Makefile](./0-Makefile)
 > Create a makefile with:
-> * name of the executable: holberton
+> * name of the executable:
+  >   * holberton
 > * rules:
-  >	* all
+  >   * all
 > * variables:
-  >	* none
+  >   * none

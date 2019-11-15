@@ -36,7 +36,7 @@ char **setwords(int ac, char *str)
 			if (words[w] == NULL)
 			{
 				for (l = 0; l < w; l++)
-					free(words[w]);
+					free(words[l]);
 				free(words);
 				return (NULL);
 			}
