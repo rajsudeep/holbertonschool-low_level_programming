@@ -3,6 +3,7 @@
 
 
 def island_perimeter(grid):
+    """ Finds the perimeter of an island """
     count = 0
 
     for j, r in enumerate(grid):
