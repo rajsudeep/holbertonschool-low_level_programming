@@ -1,11 +1,12 @@
 #!usr/bin/python3
-""" Module that finds the perimeter of an island """
+"""
+Module that finds the perimeter of an island
+"""
 
 
 def island_perimeter(grid):
     """ Finds the perimeter of an island """
     count = 0
-
     for j, r in enumerate(grid):
         for i, c in enumerate(r):
             if c == 1:
